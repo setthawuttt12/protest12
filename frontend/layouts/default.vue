@@ -10,7 +10,7 @@
         </v-app-bar>
 
         <client-only>
-            <v-navigation-drawer app width="260" color="#404040" :temporary="isMobile" :permanent="!isMobile">
+            <v-navigation-drawer v-model="drawer" app width="260" color="#404040" :temporary="isMobile" :permanent="!isMobile">
                 <v-list density="comfortable">
                     <v-list-item v-for="item in navitem" :key="item.title" :to="item.to">
                         {{ item.title }}
@@ -75,8 +75,8 @@ const roles = [
     //commit
 
     {title:'รายชื่อผู้รับการประเมินผล',to:'/Committee',role:'กรรมการประเมิน'},
-    {title:'ดำเนินการประเมิน',to:'/Committee/showeva',role:'กรรมการประเมิน'},
-    {title:'ตรวจสอบผลและยืนยัน',to:'/Committee/check_confirm',role:'กรรมการประเมิน'},
+    {title:'ดำเนินการประเมิน',to:'/Committee/Showeva',role:'กรรมการประเมิน'},
+    {title:'ตรวจสอบผลและยืนยัน',to:'/Committee/Check_confirm',role:'กรรมการประเมิน'},
     {title:'คู่มือการประเมิน',to:'/Committee/Doc',role:'กรรมการประเมิน'},
 ]
 

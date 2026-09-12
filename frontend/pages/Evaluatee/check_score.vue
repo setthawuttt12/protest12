@@ -6,7 +6,7 @@
             <v-card class="pa-2">
                 <center>
                     <nuxt-link to="/Evaluatee/score_member"><v-btn color="green" class="pa-2" size="small">ผลการประเมินของผู้รับการประเมินผล </v-btn></nuxt-link>&nbsp;&nbsp;
-                <nuxt-link to="/Evaluatee/score_member"><v-btn color="blue" class="pa-2" size="small">ผลการประเมินของกรรมการประเมินผล </v-btn></nuxt-link>
+                <nuxt-link to="/Evaluatee/score_commit"><v-btn color="blue" class="pa-2" size="small">ผลการประเมินของกรรมการประเมินผล </v-btn></nuxt-link>
                 </center>
             </v-card>
         </v-col>
