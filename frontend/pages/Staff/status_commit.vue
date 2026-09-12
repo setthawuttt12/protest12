@@ -24,7 +24,7 @@
                                     <td class="text-center border">{{ index+1 }}</td>
                                     <td class="text-center border">{{ items.fname }} {{ items.lname }}</td>
                                     <td class="text-center border">รอบการประเมินที่:{{ items.round_sys }} ปี:{{ items.year_sys }}</td>
-                                    <td class="text-center border">{{ items.day_eva }}</td>
+                                    <td class="text-center border">{{ formatDate(items.day_eva) }}</td>
                                     <td class="text-center border">
                                         <v-btn class="ma-3 text-center text-white" :color="bg(items.status_eva)" size="small">{{ items.status_eva === 1 ? 'รอการประเมินตนเอง': items.status_eva === 2 ? 'รอกรรมการประเมิน':'ประเมินสำเร็จ' }}</v-btn>
                                     </td>
@@ -110,6 +110,17 @@ const fetch = async()=>{
 
 const edit = (items:any)=>{
     form.value = {...items}
+}
+
+const formatDate = (dateStr:string)=>{
+
+    if(!dateStr)return '-'
+    const date = new Date(dateStr)
+    const day = String(date.getDay()).padStart(2,'0')
+    const month = String(date.getMonth()).padStart(2,'0')
+    const year = String(date.getFullYear())
+    return `${day}/${month}/${year}`
+
 }
 
 const del = async(id_eva:number)=>{

@@ -47,7 +47,7 @@
                                     <td class="text-center border">{{ index+1 }}</td>
                                     <td class="text-center border">{{ items.fname }} {{ items.lname }}</td>
                                     <td class="text-center border">รอบการประเมินที่:{{ items.round_sys }} ปี:{{ items.year_sys }}</td>
-                                    <td class="text-center border">{{ items.day_eva }}</td>
+                                    <td class="text-center border">{{ formatDate(items.day_eva) }}</td>
                                     <td class="text-center border">
                                         <v-btn class="ma-3 text-center text-white" color="success" size="small" @click="go(items.id_eva)">เพิ่มกรรมการ</v-btn>
                                     </td>
@@ -175,6 +175,17 @@ const result = computed(()=>{
     })
 
 })
+
+const formatDate = (dateStr:string)=>{
+
+    if(!dateStr)return '-'
+    const date = new Date(dateStr)
+    const day = String(date.getDay()).padStart(2,'0')
+    const month = String(date.getMonth()).padStart(2,'0')
+    const year = String(date.getFullYear())
+    return `${day}/${month}/${year}`
+
+}
 
 const go = (id_eva:number)=>{
     navigateTo({path:`/Staff/commit-eva-${id_eva}`})

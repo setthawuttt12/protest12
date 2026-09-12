@@ -51,8 +51,8 @@
                             <tbody>
                                 <tr v-for="(items,index) in result" :key="items.id_sys">
                                     <td class="text-center border">{{ index+1 }}</td>
-                                    <td class="text-center border">{{ items.day_open }}</td>
-                                    <td class="text-center border">{{ items.day_out }}</td>
+                                    <td class="text-center border">{{ formatDate(items.day_open) }}</td>
+                                    <td class="text-center border">{{ formatDate(items.day_out) }}</td>
                                     <td class="text-center border">{{ items.round_sys }}</td>
                                     <td class="text-center border">{{ items.year_sys }}</td>
                                     <td class="text-center border">{{ items.status_sys === 'y' ? 'เปิด':'ปิด' }}</td>
@@ -164,6 +164,18 @@ const del = async(id_sys:number)=>{
         console.error("Error delete round",error);
         
     }
+}
+
+const formatDate = (dateStr:string)=>{
+
+    if(!dateStr)return '-'
+    const date = new Date(dateStr)
+    const day = String(date.getDay()).padStart(2,'0')
+    const month = String(date.getMonth()).padStart(2,'0')
+    const year = String(date.getFullYear())
+
+    return `${day}/${month}/${year}`
+
 }
 
 

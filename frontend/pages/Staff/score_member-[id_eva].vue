@@ -18,6 +18,7 @@
                                     <th class="bg-grey border pa-1" style="width: 10%;">น้ำหนักคะแนน</th>
                                     <th class="bg-grey border pa-1" style="width: 10%;">คะแนนเต็ม</th>
                                     <th class="bg-grey border pa-1" style="width: 10%;">รายละเอียด</th>
+                                    <th class="bg-grey border pa-1" style="width: 10%;">เอกสาร</th>
                                     <th class="bg-grey border pa-1" style="width: 10%;">คะแนนที่ได้</th>
                                 </tr>
                                 <tr v-for="(indicate,i) in topic.indicates" :key="indicate.id_indicate">
@@ -26,6 +27,11 @@
                                     <td class="border pa-1 text-center" style="width: 10%;">{{ indicate.point_indicate }}</td>
                                     <td class="border pa-1 text-center" style="width: 10%;">{{ indicate.point_indicate*4 }}</td>
                                     <td class="border pa-1 text-center" style="width: 10%;">{{ indicate.detail_eva || '-' }}</td>
+                                    <td class="border pa-1 text-center" style="width: 10%;">
+                                         <center>
+                                            <v-btn class="ma-3 text-center text-white" color="info" size="small" @click="view(indicate.file_eva)" prepend-icon="mdi-eye" v-if="indicate.file_eva">เปิดดู</v-btn><span v-else class="text-center">-</span>
+                                        </center>
+                                    </td>
                                     <td class="border pa-1 text-center" style="width: 10%;">{{ indicate.score_member*indicate.point_indicate }}</td>
                                 </tr>
                             </v-table>
@@ -70,7 +76,12 @@ const fecthTopics = async()=>{
     }
 }
   
+const view = (filename:string)=>{
 
+    const url = `http://localhost:3001/uploads/evadetail/${filename}`
+    window.open(url,'_blank')
+
+}
 
 
 

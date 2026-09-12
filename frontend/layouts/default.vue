@@ -10,7 +10,7 @@
         </v-app-bar>
 
         <client-only>
-            <v-navigation-drawer app width="260" color="#404040" :temporary="isMobile" :permanent="!isMobile">
+            <v-navigation-drawer app width="260" v-model="drawer" color="#404040" :temporary="isMobile" :permanent="!isMobile">
                 <v-list density="comfortable">
                     <v-list-item v-for="item in navitem" :key="item.title" :to="item.to">
                         {{ item.title }}

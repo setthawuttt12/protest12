@@ -2,6 +2,13 @@
     <v-container>
         <v-row justify="center">
             <v-col cols="12" md="12">
+                <v-card class="mb-3">
+                    <v-card-title><h1 class="text-center">ผู้รับการประเมินผล</h1></v-card-title>
+                    <v-card-text>
+                        <p>ชื่อ-สกุล:{{ header.fname }} {{ header.lname }}</p>
+                        <p>รอบการประเมินที่:{{ header.round_sys }} ปี:{{ header.year_sys }}</p>
+                    </v-card-text>
+                </v-card>
                 <v-card>
                     <v-card-title>
                         <h1 class="text-h5 text-center">สถานะการประเมินกรรมการประเมินผล</h1>
@@ -45,7 +52,7 @@ import { api, staff } from '~/API/base';
 const error = ref<Record<string,string>>({})
 const dataResult = ref([])
 const eva = ref([])
-const round =ref([])
+const header =ref([])
 const search = ref('')
 const form = ref(
     {
@@ -83,7 +90,8 @@ const bg =(status_commit:string)=>{
 
 const fetch = async()=>{
     try {
-        
+        const res2 = await axios.get(`${staff}/commit/header/${id_eva}`,{headers:{Authorization:`Bearer ${token}`}})
+        header.value = res2.data
         const res = await axios.get(`${staff}/status/${id_eva}`,{headers:{Authorization:`Bearer ${token}`}})
         dataResult.value = res.data
         

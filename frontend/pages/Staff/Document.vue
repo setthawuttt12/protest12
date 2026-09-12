@@ -41,7 +41,7 @@
                                 <tr v-for="(items,index) in result" :key="items.id_doc">
                                     <td class="text-center border">{{ index+1 }}</td>
                                     <td class="text-center border">{{ items.name_doc }}</td>
-                                    <td class="text-center border">{{ items.day_doc }}</td>
+                                    <td class="text-center border">{{ formatDate(items.day_doc) }}</td>
                                     <td class="text-center border">
                                         <center>
                                             <v-btn class="ma-3 text-center text-white" color="info" size="small" @click="view(items.file)" prepend-icon="mdi-eye">เปิดดู</v-btn>
@@ -140,6 +140,17 @@ const result = computed(()=>{
     })
 
 })
+
+const formatDate = (dateStr:string)=>{
+
+    if(!dateStr)return '-'
+    const date = new Date(dateStr)
+    const day = String(date.getDay()).padStart(2,'0')
+    const month = String(date.getMonth()).padStart(2,'0')
+    const year = String(date.getFullYear())
+    return `${day}/${month}/${year}`
+
+}
 
 const view = (filename:string)=>{
 
