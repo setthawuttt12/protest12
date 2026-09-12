@@ -10,12 +10,14 @@
         </v-app-bar>
 
         <client-only>
-            <v-navigation-drawer app width="260" color="#404040" :temporary="isMobile" :permanent="!isMobile">
-                <v-list density="comfortable">
+            <v-navigation-drawer v-model="drawer" app width="260" color="#404040" :temporary="isMobile" :permanent="!isMobile">
+                <v-list-item density="comfortable">
                     <v-list-item v-for="item in navitem" :key="item.title" :to="item.to">
-                        {{ item.title }}
+                        <v-list-item-title>
+                            {{ item.title }}
+                        </v-list-item-title>
                     </v-list-item>
-                </v-list>
+                </v-list-item>
             </v-navigation-drawer>
         </client-only>
 
@@ -95,7 +97,7 @@ const fecth = async()=>{
 
 onMounted(fecth)
 const bg = (role)=>{
-    if(role === 'ฝ่ายบุคลากร')return '#687647'
+    if(role === 'ฝ่ายบุคลากร')return '#647687'
     if(role === 'กรรมการประเมิน')return '#007FFF'
     if(role === 'ผู้รับการประเมินผล')return '#7d0c14'
 }

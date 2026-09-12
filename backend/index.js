@@ -18,12 +18,21 @@ app.use('/uploads',express.static(path.join(__dirname,'./uploads')))
 const pf = require('./routes/profile')
 app.use('/api/profile',pf)
 
+const doc = require('./routes/docnoe')
+app.use('/api/docnoe',doc)
+
 const auth = require('./routes/auth')
 app.use('/api/auth',auth)
+
+const dash = require('./routes/dash')
+app.use('/api/dash',dash)
 
 //eva
 const selfeva = require('./routes/Eva/selfeva')
 app.use('/api/Eva/selfeva',selfeva)
+
+const edit = require('./routes/Eva/editeva')
+app.use('/api/Eva/editeva',edit)
 
 const scorem = require('./routes/Eva/score_member')
 app.use('/api/Eva/score_member',scorem)
