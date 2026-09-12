@@ -16,32 +16,32 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `tb_comit`
+-- Table structure for table `tb_commit`
 --
 
-DROP TABLE IF EXISTS `tb_comit`;
+DROP TABLE IF EXISTS `tb_commit`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tb_comit` (
+CREATE TABLE `tb_commit` (
   `id_commit` int NOT NULL AUTO_INCREMENT,
   `id_member` int DEFAULT NULL,
   `id_eva` int DEFAULT NULL,
   `status_commit` varchar(100) DEFAULT NULL,
   `level_commit` varchar(100) DEFAULT NULL,
-  `detail_comit` text,
+  `detail_commit` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
   `signature` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id_commit`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tb_comit`
+-- Dumping data for table `tb_commit`
 --
 
-LOCK TABLES `tb_comit` WRITE;
-/*!40000 ALTER TABLE `tb_comit` DISABLE KEYS */;
-INSERT INTO `tb_comit` VALUES (1,2,1,'n','ประธาน','-','-');
-/*!40000 ALTER TABLE `tb_comit` ENABLE KEYS */;
+LOCK TABLES `tb_commit` WRITE;
+/*!40000 ALTER TABLE `tb_commit` DISABLE KEYS */;
+INSERT INTO `tb_commit` VALUES (1,2,2,'n','ประธาน','-','-');
+/*!40000 ALTER TABLE `tb_commit` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -148,7 +148,7 @@ CREATE TABLE `tb_member` (
   `pic_user` varchar(100) DEFAULT NULL,
   `role` enum('ฝ่ายบุคลากร','ผู้รับการประเมินผล','กรรมการประเมิน') DEFAULT NULL,
   PRIMARY KEY (`id_member`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -157,7 +157,7 @@ CREATE TABLE `tb_member` (
 
 LOCK TABLES `tb_member` WRITE;
 /*!40000 ALTER TABLE `tb_member` DISABLE KEYS */;
-INSERT INTO `tb_member` VALUES (1,'supimon','painai','supimon','$2b$10$mMv6ywnr1SkNPSjSnRlYgOexn7emt/7ftKWTjlXrzTpfmuNAbWJvi','supimon@gmail.com','1789184106219.png','ผู้รับการประเมินผล');
+INSERT INTO `tb_member` VALUES (1,'kingjana','painai','supimon','$2b$10$/uZwWVyonA1KYknu1xPS/uJHBbJ1GibaT8g5Ie.xz3u7B78hC1Esq','supimon@gmail.com','1789184106219.png','ผู้รับการประเมินผล'),(2,'supimon2','painai','sommaija2','$2b$10$kr222FwJKByMOdYFehPzDOFWsNXcC9MiTs87El7MeIn8oXNinyC8W','supimon@gmail.com','1789200948764.png','กรรมการประเมิน');
 /*!40000 ALTER TABLE `tb_member` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -226,4 +226,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-09-12 14:10:40
+-- Dump completed on 2026-09-12 16:02:37
