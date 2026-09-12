@@ -2,17 +2,17 @@
     <v-container>
         <v-row>
             <v-col cols="12">
-                <v-form v-if="useRequestEvent.status_eva === 2 || useRequestEvent.status_eva === 3">
-                    <h1 class="text-h5 font-weight-border">คะแนนประเมินของผู้รับการประเมิน</h1>
+                <v-form v-if="user.status_eva === 2 || user.status_eva === 3">
+                    <h1 class="text-h5 font-weight-bold">คะแนนประเมินของผู้รับการประเมิน</h1>
                     <v-card class="pa-2 mt-2">
                         <p>ชื่อ - นามสกุล : {{ user.fname }} {{ user.lname }}</p>
-                        <p>รอบการประเมินที่ : {{ user.round_sys }} ปี {{ usr.year_sys }}</p>
+                        <p>รอบประเมินที่ : {{ user.round_sys }} ปี {{ user.year_sys }}</p>
                     </v-card>
                     <v-row class="mt-2" v-for="(topic,t) in topics" :key="topic.id_topic">
                         <v-col cols="12">
                             <h1 class="text-h6">{{ t+1 }}.{{ topic.name_topic }}</h1>
-                            <v-table class="table"></v-table>
-                       <tr>
+                            <v-table class="table">
+                                <tr>
                                     <th class="bg-grey border pa-1" style="width: 10%;">ตัวชี้วัด</th>
                                     <th class="bg-grey border pa-1" style="width: 10%;">รายละเอียดตัวชี้วัด</th>
                                     <th class="bg-grey border pa-1" style="width: 10%;">น้ำหนักคะแนน</th>
@@ -80,3 +80,7 @@ onMounted(async () =>{
 })
 
 </script>
+
+<style scoped>
+
+</style>
