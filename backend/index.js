@@ -45,6 +45,9 @@ app.use('/api/Commit/score_member',score_member2)
 const check_confirm = require('./routes/Commit/check_confirm')
 app.use('/api/Commit/check_confirm',check_confirm)
 
+const score_commit = require('./routes/Commit/score_commit')
+app.use('/api/Commit/score_commit',score_commit)
+
 
 
 app.use((req,res)=>res.status(404).json({message:'Route not Found'}))
