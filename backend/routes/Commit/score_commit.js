@@ -27,3 +27,5 @@ router.get('/topic/:id_eva',verifyToken,requireRole('กรรมการปร
         
     }
 })
+
+module.exports = router
