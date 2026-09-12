@@ -11,14 +11,14 @@
                     </v-card>
                     <v-row class="mt-2" v-for="(topic,t) in topics" :key="topic.id_topic">
                         <v-col cols="12">
-                            <h1 class="text-h6">{{ t+1 }}.{{ topic.name_topic }}</h1>
+                            <h1 class="text-h6">{{ Number(t)+1 }}.{{ topic.name_topic }}</h1>
                             <v-card class="pa-2">
                                 <v-row v-for="(indicate,i) in topic.indicates" :key="indicate.id_indicate">
                                     <v-col cols="12">
-                                        {{ t+1 }}.{{ i+1 }} {{ indicate.name_indicate }} รายละเอียดตัวชี้วัด : {{ indicate.detail_indicate }} น้ำหนักคะแนน : {{ indicate.point_indicate }} คะแนนเต็ม : {{ indicate.point_indicate*4 }}
+                                        {{ Number(t)+1 }}.{{ Number(i)+1 }} {{ indicate.name_indicate }} รายละเอียดตัวชี้วัด : {{ indicate.detail_indicate }} น้ำหนักคะแนน : {{ indicate.point_indicate }} คะแนนเต็ม : {{ indicate.point_indicate*4 }}
                                         <p class="mt-2">รายละเอียด : {{ indicate.detail_eva || '-' }}</p>
                                         <p class="mt-2">file : <v-btn v-if="indicate.file_eva" size="small" @click="viweFile(indicate.file_eva)" color="blue">เปิดดู</v-btn><span v-else>-</span></p>
-                                        <v-select class="mt-2" label="ใส่คะแนนประเมิน 1-4" :items="[1,2,3,4]" v-model="indicate.score"></v-select>
+                                        <v-select class="mt-2" label="ใส่คะแนนประเมิน 1-4" variant="outlined" :items="[1,2,3,4]" v-model="indicate.score"></v-select>
                                     </v-col>
                                 </v-row>
                             </v-card>
@@ -27,7 +27,7 @@
                     <div class="mt-4">
                         <v-card class="pa-2">
                             <label for="">ข้อเสนอแนะ</label>
-                            <v-textarea label="(ถ้ามี)" v-model="detail_commit" rows="2"></v-textarea>
+                            <v-textarea label="(ถ้ามี)" variant="outlined" v-model="detail_commit" rows="2"></v-textarea>
                         </v-card>
                     </div>
                     <div class="text-center mt-4">

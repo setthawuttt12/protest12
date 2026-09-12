@@ -4,7 +4,7 @@ const db = mysql2.createConnection({
     user:'root',
     port:'3306',
     password:'1234',
-    database:'protest12'
+    database:'pretest12'
 })
 
 module.exports = db.promise()
