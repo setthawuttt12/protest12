@@ -18,8 +18,8 @@ app.use('/uploads',express.static(path.join(__dirname,'./uploads')))
 const auth = require('./routes/auth')
 app.use('/api/auth',auth)
 
-// const dash = require('./routes/dash')
-// app.use('/api/dash',dash)
+const dash = require('./routes/dash')
+app.use('/api/dash',dash)
 
 const profile = require('./routes/profile')
 app.use('/api/profile',profile)
@@ -49,6 +49,12 @@ app.use('/api/Staff/doc',doc)
 
 const status = require('./routes/Staff/status')
 app.use('/api/Staff/status',status)
+
+const score_member5 = require('./routes/Staff/score_member')
+app.use('/api/Staff/score_member',score_member5)
+
+const score_commit5 = require('./routes/Staff/score_commit')
+app.use('/api/Staff/score_commit',score_commit5)
 
 app.use((req,res)=>res.status(404).json({message:'Route not Found'}))
 app.listen(3001,()=>{
